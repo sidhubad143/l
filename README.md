@@ -31,7 +31,8 @@ Automates capturing **Free Fire guest credentials** via **Frida**, formats and m
     pip install httpx pycryptodome protobuf
     or 
     pip install -r requirements.txt
-
+### Usage (For sending likes)
+    python3 send_like.py
 ---
 
 ## 👤 Guest account creation workflow
