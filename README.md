@@ -42,7 +42,7 @@ Automates capturing **Free Fire guest credentials** via **Frida**, formats and m
 ### Launch options:
 - **Interactive**: `python3 dev/frida_injections/frida_manager.py` (choose USB/TCP and scripts).
 - Then use image clicker to click on respective positions one after another and the script will work on its own save guest data in the apps permissible dir inside `Android/data/com.dts.freefiremax/`
-- **Manual**: `frida -U -n Gadget -l dev/frida_injections/capture_and_save_guest.js -l dev/frida_injections/restart_after_register.js`.
+- **Manual**: `frida -U -n Gadget -l dev/frida_injections/capture_and_save_guest.js -l dev/frida_injections/restart_after_register.js -l dev/frida_injections/index.js`.
 
 ### Notes:
 - `frida_manager.py` validates connectivity, restarts sessions, and manages default script lists; adjust `PROCESS_NAME`/`DEFAULT_JS_SCRIPTS` as needed.
