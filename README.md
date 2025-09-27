@@ -29,6 +29,8 @@ Automates capturing **Free Fire guest credentials** via **Frida**, formats and m
 
 ### Install:
     pip install httpx pycryptodome protobuf
+    or 
+    pip install -r requirements.txt
 
 ---
 
