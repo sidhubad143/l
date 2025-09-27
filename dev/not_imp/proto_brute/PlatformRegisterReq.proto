@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package proto;
+
+message PlatformRegisterReq {
+    string nickname              = 1;
+    string access_token          = 2;
+    string open_id               = 3;
+    string region                = 4;
+    uint32 avatar_id             = 5;
+    uint32 platform_type         = 6;
+
+        bool is_newbie_choice = 7;
+    EAuth_ClientUsingVersion using_version = 8;
+    string language = 9;
+    bytes platform_register_info = 10;
+    EAccount_NewbieChoice newbie_choice = 11;
+    string editor_register_key = 12;
+    EAccount_DownloadType source = 13;
+    uint32 platform_sdk_id = 14;
+}
+
+enum EAccount_DownloadType {
+    DownloadType_NONE        = 0;
+    DownloadType_INSTANTGAME = 1;
+    DownloadType_IOS         = 2;
+    DownloadType_HUAWEI      = 3;
+    DownloadType_XIAOMI      = 4;
+    DownloadType_SAMSUNG     = 5;
+}
+
+enum EAccount_NewbieChoice {
+    NewbieChoice_NONE         = 0;
+    NewbieChoice_NEW_PLAYER   = 1;
+    NewbieChoice_FPS_PLAYER   = 2;
+    NewbieChoice_VETERAN      = 3;
+    NewbieChoice_NEEDMOREINFO = 99;
+}
+
+enum EAuth_ClientUsingVersion {
+    ClientUsingVersion_NONE    = 0;
+    ClientUsingVersion_NORMAL  = 1;
+    ClientUsingVersion_MAX     = 2;
+    ClientUsingVersion_FFI     = 3;
+    ClientUsingVersion_MAX_HPE = 4;
+}
