@@ -61,7 +61,7 @@ Automates capturing **Free Fire guest credentials** via **Frida**, formats and m
 
 ---
 
-## Send likes (concurrent, safe)
+## ⚡Send likes (concurrent, safe)
 - Run: `python3 send_like.py`, then provide target UID, desired like count, and max concurrency.
 - **Behavior**:  
   - Loads guests from `guests_converted.json`  
@@ -74,7 +74,7 @@ Automates capturing **Free Fire guest credentials** via **Frida**, formats and m
 
 ---
 
-## Configuration tips
+## 🪛Configuration tips
 - If using Gadget, keep `PROCESS_NAME="Gadget"`; otherwise set the app process name in `frida_manager.py`.
 - Tune concurrency and RPS to avoid throttling and fit within daily per-target limits.
 - Prefer the `server_url` returned by the JWT flow when endpoints are region-scoped.
@@ -160,4 +160,4 @@ freefire-like-and-guest-api
 11 directories, 56 files
 ```
 
-## Inside the `dev/not_imp` & `dev/frida_injections/not_imp/` there are my all works, the scripts, methods i used to create this repository. It's more than a diamond if you can understand what those things are for.
+- Inside the `dev/not_imp` & `dev/frida_injections/not_imp/` there are my all works, the scripts, methods i used to create this repository. It's more than a diamond if you can understand what those things are for.
