@@ -1,6 +1,6 @@
 # FreeFire Guest generator, Like & API Toolkit
 ---
-## ⭐ This is the only repository on github which provides all the source codes from likes to creating registerd guest account seamlessly, So give this repository a star to show your love.
+## ⭐ This is the only repository on github which provides all the source codes from likes to creating registered guest account seamlessly, So give this repository a star to show your love.
 ---
 Automates creating and capturing **Free Fire guest accounts** via **Frida**, formats and manages them, obtains **JWTs**, and sends encrypted like requests to a target UID with **concurrency controls** and **one-like-per-guest-per-target guarantees**.
 
