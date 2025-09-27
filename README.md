@@ -37,7 +37,8 @@ Automates capturing **Free Fire guest credentials** via **Frida**, formats and m
 ## 👤 Guest account creation workflow
 - Attach `capture_and_save_guest.js` while launching the game to hook SharedPreferences and relevant classes, collecting uid/password/token.
 - The script reads an existing `guest_accounts.json` in the app’s external media directory, appends unique entries, and writes atomically.
-- Optional: Load `restart_after_register.js` to detect registration completion and trigger a timed restart for continuous guest generation.
+- Load `restart_after_register.js` to detect registration completion and trigger a timed restart for continuous guest generation.
+- Load `index.js` or no hooking will work.
 
 ### Launch options:
 - **Interactive**: `python3 dev/frida_injections/frida_manager.py` (choose USB/TCP and scripts).
