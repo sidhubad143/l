@@ -1,5 +1,5 @@
 # FreeFire Guest generator, Like & API Toolkit
-
+## I worked for more than 6 days with 18 hours/day for getting those protobuf schemas to creating this tool from free fire's native C# code.
 Automates capturing **Free Fire guest credentials** via **Frida**, formats and manages them, obtains **JWTs**, and sends encrypted like requests to a target UID with **concurrency controls** and **one-like-per-guest-per-target guarantees**.
 
 ---
