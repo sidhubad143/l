@@ -23,7 +23,7 @@ if os.path.exists(usage_file):
 else:
     usage_by_target = {}
 
-# ---- Helpers for per-target permanent skip ----
+# Helpers for per-target permanent skip
 def ensure_target(target_uid: str):
     if target_uid not in usage_by_target:
         usage_by_target[target_uid] = {"used_guests": {}, "total_likes": 0}
@@ -42,8 +42,10 @@ def save_usage():
     with open(usage_file, "w") as f:
         json.dump(usage_by_target, f, indent=2)
 
-# ---- Inputs ----
+# Inputs
 uid_to_like = input("Enter UID to like: ").strip()
+server_name_in = input("Enter server name (e.g., IND, BR, US, SAC, NA): ").strip().upper()
+
 guest_count = count()
 print(f"\n{guest_count} guest accounts found in '{guests_file}'")
 print("\nFree Fire allows 100 guest accounts to like a single profile within 24 hours")
@@ -55,7 +57,21 @@ max_conc_in = input("How many like requests to send per second? (eg. 20): ").str
 MAX_CONCURRENT = int(max_conc_in) if max_conc_in else 20
 semaphore = asyncio.Semaphore(MAX_CONCURRENT)
 
-# ---- Async worker ----
+# Determine Base URL based on Server Input
+def get_base_url(server_name: str) -> str:
+    if server_name == "IND":
+        return "https://client.ind.freefiremobile.com"
+    elif server_name in {"BR", "US", "SAC", "NA"}:
+        return "https://client.us.freefiremobile.com"
+    else:
+        # Default/other regions based on the original server logic
+        return "https://clientbp.ggblueshark.com"
+
+# Resolve the base URL for the target server
+BASE_URL = get_base_url(server_name_in)
+# --------------------------------------------------
+
+# Async worker
 async def like_with_guest(guest: dict, target_uid: str) -> bool:
     guest_uid = str(guest["uid"])
     guest_pass = guest["password"]
@@ -69,7 +85,7 @@ async def like_with_guest(guest: dict, target_uid: str) -> bool:
     async with semaphore:
         try:
             # Acquire JWT/region
-            jwt, region, server_url = await create_jwt(guest_uid, guest_pass)
+            jwt, region, server_url_from_jwt = await create_jwt(guest_uid, guest_pass)
 
             # Build payload
             payload = create_like_payload(target_uid, region)
@@ -77,7 +93,7 @@ async def like_with_guest(guest: dict, target_uid: str) -> bool:
                 payload = binascii.unhexlify(payload)
 
             headers = {
-                "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 15; I2404 Build/AP3A.240905.015.A2_V000L1)",
+                "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 14; Pixel 8 Build/UP1A.231005.007)",
                 "Connection": "Keep-Alive",
                 "Accept-Encoding": "gzip",
                 "Content-Type": "application/octet-stream",
@@ -89,8 +105,8 @@ async def like_with_guest(guest: dict, target_uid: str) -> bool:
             }
 
             async with httpx.AsyncClient() as client:
-                # If LikeProfile is region-scoped, replace with server_url accordingly
-                url = "https://client.ind.freefiremobile.com/LikeProfile"
+                # UPDATED ENDPOINT URL
+                url = f"{BASE_URL}/LikeProfile"
                 response = await client.post(url, data=payload, headers=headers, timeout=30)
                 response.raise_for_status()
 
@@ -109,7 +125,7 @@ async def like_with_guest(guest: dict, target_uid: str) -> bool:
 
     return False
 
-# ---- Main ----
+# Main
 async def main():
     ensure_target(uid_to_like)
 
