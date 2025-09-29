@@ -44,7 +44,6 @@ def save_usage():
 
 # Inputs
 uid_to_like = input("Enter UID to like: ").strip()
-
 server_name_in = input("Enter server name (e.g., IND, BR, US, SAC, NA): ").strip().upper()
 
 guest_count = count()
