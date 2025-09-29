@@ -45,7 +45,6 @@ def save_usage():
 # Inputs
 uid_to_like = input("Enter UID to like: ").strip()
 
-# NEW INPUT: Server name
 server_name_in = input("Enter server name (e.g., IND, BR, US, SAC, NA): ").strip().upper()
 
 guest_count = count()
@@ -95,7 +94,6 @@ async def like_with_guest(guest: dict, target_uid: str) -> bool:
                 payload = binascii.unhexlify(payload)
 
             headers = {
-                # UPDATED USER-AGENT: Simulating a generic Pixel device
                 "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 14; Pixel 8 Build/UP1A.231005.007)",
                 "Connection": "Keep-Alive",
                 "Accept-Encoding": "gzip",
@@ -108,7 +106,7 @@ async def like_with_guest(guest: dict, target_uid: str) -> bool:
             }
 
             async with httpx.AsyncClient() as client:
-                # UPDATED ENDPOINT URL: Using the BASE_URL derived from the new input
+                # UPDATED ENDPOINT URL
                 url = f"{BASE_URL}/LikeProfile"
                 response = await client.post(url, data=payload, headers=headers, timeout=30)
                 response.raise_for_status()
