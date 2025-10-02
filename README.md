@@ -32,7 +32,7 @@ Automates creating and capturing **Free Fire guest accounts** via **Frida**, for
 
 ---
 
-## Features
+## ⚡ Features
 - Capture guest **uid/password/token** from the Android app via **Frida hooks** and persist on-device with de-duplication.
 - **Auto-loop** guest creation by restarting after successful registration to mass-generate accounts.
 - Convert captured guests into structured **JSONs**, skipping duplicates and invalid entries.
