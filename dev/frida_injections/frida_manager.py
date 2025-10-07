@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+
+# Protective Source License v1.0 (PSL-1.0)
+# Copyright (c) 2025 Kaif
+# Unauthorized removal of credits or use for abusive/illegal purposes
+# will terminate all rights granted under this license.
+
 """
 frida_launcher.py
 

@@ -1,3 +1,11 @@
+/*
+Protective Source License v1.0 (PSL-1.0)
+Copyright (c) 2025 Kaif
+Unauthorized removal of credits or use for abusive/illegal purposes
+will terminate all rights granted under this license.
+*/
+
+
 // guest_data_capture_final_v6.js
 // Script to correctly capture, append, and save all guest credentials.
 setImmediate(function(){
