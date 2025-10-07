@@ -119,7 +119,7 @@ Automates creating and capturing **Free Fire guest accounts** via **Frida**, for
 ---
 ## 🌲Project tree
 ```bash
-freefire-like-and-guest-api
+freefire-like-and-guest-api/
 ├── LICENSE
 ├── README.md
 ├── dev
@@ -167,13 +167,13 @@ freefire-like-and-guest-api
 │       └── rawhex.hex
 ├── encrypt_like_body.py
 ├── ff_proto
-│   ├── AccountPersonalShow_pb2.py
-│   ├── FreeFire_pb2.py
-│   ├── PlatformRegisterReq.proto
-│   ├── PlatformRegisterReq_pb2.py
-│   ├── like_count_pb2.py
-│   ├── like_pb2.py
-│   └── main_pb2.py
+│   ├── account_show_pb2.py
+│   ├── core_pb2.py
+│   ├── count_likes_pb2.py
+│   ├── freefire_pb2.py
+│   ├── register_req.proto
+│   ├── register_req_pb2.py
+│   └── send_like_pb2.py
 ├── get_jwt.py
 ├── guests_manager
 │   ├── count_guest.py
@@ -184,7 +184,8 @@ freefire-like-and-guest-api
 │   └── unreg_guests
 │       ├── formatted_guests.json.lock
 │       └── guests_converted_unregisterd.json
-├── send_like.py
+├── requirements.txt
+└── send_like.py
 └── usage_history
 
 ```
