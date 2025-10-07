@@ -17,14 +17,14 @@ from Crypto.Cipher import AES
 # IMPORTANT: This script requires 'freefire_pb2.py' to be in the same directory.
 from ff_proto import freefire_pb2
 
-# --- Global Constants from your original script ---
+# --- Global Constant
 MAIN_KEY = base64.b64decode('WWcmdGMlREV1aDYlWmNeOA==')
 MAIN_IV = base64.b64decode('Nm95WkRyMjJFM3ljaGpNJQ==')
 RELEASEVERSION = "OB50"
 USERAGENT = "Dalvik/2.1.0 (Linux; U; Android 13; CPH2095 Build/RKQ1.211119.001)"
 SUPPORTED_REGIONS = ["IND", "BR", "SG", "RU", "ID", "TW", "US", "VN", "TH", "ME", "PK", "CIS"]
 
-# --- Helper Functions from your original script ---
+# --- Helper Functions
 async def json_to_proto(json_data: str, proto_message: message.Message) -> bytes:
     json_format.ParseDict(json.loads(json_data), proto_message)
     serialized_data = proto_message.SerializeToString()
@@ -46,7 +46,7 @@ def decode_protobuf(encoded_data: bytes, message_type: message.Message) -> messa
     message_instance.ParseFromString(encoded_data)
     return message_instance
 
-# --- Core Authentication Functions from your original script ---
+# --- Core Authentication
 async def getAccess_Token(uid: str, password: str):
     url = "https://ffmconnect.live.gop.garenanow.com/oauth/guest/token/grant"
     payload = f"uid={uid}&password={password}&response_type=token&client_type=2&client_secret=2ee44819e9b4598845141067b281621874d0d5d7af9d8f7e00c1e54715b7d1e3&client_id=100067"
@@ -104,7 +104,7 @@ async def create_jwt(uid: int, password: str) -> Tuple[str, str, str]:
             
         return token, region, serverUrl
 
-# --- Main Program to Run ---
+# --- Main Program to Run
 async def main():
     print("\n--- Free Fire JWT Generator ---")
     
