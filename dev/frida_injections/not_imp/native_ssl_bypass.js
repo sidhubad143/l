@@ -6,6 +6,7 @@ will terminate all rights granted under this license.
 */
 
 
+
 'use strict';
 
 function logger(message) {
