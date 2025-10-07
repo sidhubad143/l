@@ -28,7 +28,7 @@ DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19PlatformRegist
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'PlatformRegisterReq_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'register_req_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
   _globals['_EAUTH_CLIENTUSINGVERSION']._serialized_start=331

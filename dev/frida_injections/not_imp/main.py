@@ -1,6 +1,6 @@
 # main.py
 
-from proto import FreeFire_pb2, main_pb2, AccountPersonalShow_pb2
+from proto import freefire_pb2, core_pb2, account_show_pb2
 import httpx
 import asyncio
 import json
@@ -85,7 +85,7 @@ async def create_jwt(region: str) -> Tuple[str, str, str]:
       "login_token": access_token,
       "orign_platform_type": "4"
     })
-    encoded_result = await json_to_proto(json_data, FreeFire_pb2.LoginReq())
+    encoded_result = await json_to_proto(json_data, freefire_pb2.LoginReq())
     payload = aes_cbc_encrypt(MAIN_KEY, MAIN_IV, encoded_result)
     url = "https://loginbp.ggblueshark.com/MajorLogin"
     headers = {
@@ -101,7 +101,7 @@ async def create_jwt(region: str) -> Tuple[str, str, str]:
     async with httpx.AsyncClient() as client:
         response = await client.post(url, data=payload, headers=headers)
         response_content = response.content
-        message = json.loads(json_format.MessageToJson(decode_protobuf(response_content, FreeFire_pb2.LoginRes)))
+        message = json.loads(json_format.MessageToJson(decode_protobuf(response_content, freefire_pb2.LoginRes)))
         token = message.get("token", "0")
         region = message.get("lockRegion", "0")
         serverUrl = message.get("serverUrl", "0")
@@ -113,7 +113,7 @@ async def GetAccountInformation(ID, UNKNOWN_ID, regionMain, endpoint):
         "a": ID,
         "b": UNKNOWN_ID
     })
-    encoded_result = await json_to_proto(json_data, main_pb2.GetPlayerPersonalShow())
+    encoded_result = await json_to_proto(json_data, core_pb2.GetPlayerPersonalShow())
     payload = aes_cbc_encrypt(MAIN_KEY, MAIN_IV, encoded_result)
     regionMain = regionMain.upper()
     if regionMain not in SUPPORTED_REGIONS:
@@ -136,7 +136,7 @@ async def GetAccountInformation(ID, UNKNOWN_ID, regionMain, endpoint):
     async with httpx.AsyncClient() as client:
         response = await client.post(serverUrl + endpoint, data=payload, headers=headers)
         response_content = response.content
-        message = json.loads(json_format.MessageToJson(decode_protobuf(response_content, AccountPersonalShow_pb2.AccountPersonalShowInfo)))
+        message = json.loads(json_format.MessageToJson(decode_protobuf(response_content, account_show_pb2.AccountPersonalShowInfo)))
         return message
 
 # --- Interactive Main Program ---

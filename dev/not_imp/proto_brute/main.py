@@ -8,7 +8,7 @@ from google.protobuf.message import DecodeError
 # Constants
 PROTO_TEMPLATE_PATH = "PlatformRegisterReq_template.proto"
 PROTO_GENERATED_PATH = "PlatformRegisterReq.proto"
-PB2_MODULE_NAME = "PlatformRegisterReq_pb2"
+PB2_MODULE_NAME = "register_req_pb2"
 HEX_INPUT_FILE = "rawhex.hex"
 
 # Field definitions to permute from 7 to 14 (field_name, type)

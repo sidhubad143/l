@@ -1,13 +1,13 @@
-# import sys, os
-# sys.path.insert(0, os.path.join(os.path.dirname(__file__), "proto"))
+# Protective Source License v1.0 (PSL-1.0)
+# Copyright (c) 2025 Kaif
+# Unauthorized removal of credits or use for abusive/illegal purposes
+# will terminate all rights granted under this license.
 
-# import like_pb2
-# LikeProfileReq = like_pb2.like  # adjust if the class is _like
 import base64
 import binascii
 from Crypto.Cipher import AES
-from ff_proto import like_pb2
-LikeProfileReq = like_pb2.like
+from ff_proto import send_like_pb2
+LikeProfileReq = send_like_pb2.like
 
 # --- Garena API Encryption Constants ---
 MAIN_KEY = base64.b64decode('WWcmdGMlREV1aDYlWmNeOA==')
@@ -48,7 +48,7 @@ def create_like_payload(uid: int, region: str) -> bytes:
 
 # --- Example usage / hardcoded test ---
 if __name__ == "__main__":
-    uid_to_like = 1002810438  # Hardcoded UID
+    uid_to_like = 111119900  # Hardcoded UID as a Placeholder
     region = "IND"             # Hardcoded region
 
     payload = create_like_payload(uid_to_like, region)

@@ -1,3 +1,10 @@
+# Protective Source License v1.0 (PSL-1.0)
+# Copyright (c) 2025 Kaif
+# Unauthorized removal of credits or use for abusive/illegal purposes
+# will terminate all rights granted under this license.
+
+
+
 import httpx
 import asyncio
 import json
@@ -7,8 +14,8 @@ from typing import Tuple
 from google.protobuf import json_format, message
 from Crypto.Cipher import AES
 
-# IMPORTANT: This script requires 'FreeFire_pb2.py' to be in the same directory.
-from ff_proto import FreeFire_pb2
+# IMPORTANT: This script requires 'freefire_pb2.py' to be in the same directory.
+from ff_proto import freefire_pb2
 
 # --- Global Constants from your original script ---
 MAIN_KEY = base64.b64decode('WWcmdGMlREV1aDYlWmNeOA==')
@@ -68,7 +75,7 @@ async def create_jwt(uid: int, password: str) -> Tuple[str, str, str]:
       "orign_platform_type": "4"
     })
     
-    encoded_result = await json_to_proto(json_data, FreeFire_pb2.LoginReq())
+    encoded_result = await json_to_proto(json_data, freefire_pb2.LoginReq())
     payload = aes_cbc_encrypt(MAIN_KEY, MAIN_IV, encoded_result)
     
     url = "https://loginbp.ggblueshark.com/MajorLogin"
@@ -86,7 +93,7 @@ async def create_jwt(uid: int, password: str) -> Tuple[str, str, str]:
     async with httpx.AsyncClient() as client:
         response = await client.post(url, data=payload, headers=headers)
         response_content = response.content
-        message = json.loads(json_format.MessageToJson(decode_protobuf(response_content, FreeFire_pb2.LoginRes)))
+        message = json.loads(json_format.MessageToJson(decode_protobuf(response_content, freefire_pb2.LoginRes)))
         
         token = message.get("token", "0")
         region = message.get("lockRegion", "0")

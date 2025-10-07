@@ -8,7 +8,7 @@ from google.protobuf import json_format, message
 from Crypto.Cipher import AES
 
 # --- Protos ---
-from proto import PlatformRegisterReq_pb2
+from proto import register_req_pb2
 
 # --- Global constants ---
 MAIN_KEY = base64.b64decode('WWcmdGMlREV1aDYlWmNeOA==')
@@ -71,7 +71,7 @@ async def major_register(
     }
 
     # Serialize & encrypt
-    encoded_result = await json_to_proto(json.dumps(req_dict), PlatformRegisterReq_pb2.PlatformRegisterReq())
+    encoded_result = await json_to_proto(json.dumps(req_dict), register_req_pb2.PlatformRegisterReq())
     payload = aes_cbc_encrypt(MAIN_KEY, MAIN_IV, encoded_result)
 
     # Send request

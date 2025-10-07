@@ -1,7 +1,7 @@
 import base64
 from Crypto.Cipher import AES
 from google.protobuf.message import EncodeError
-from PlatformRegisterReq_pb2 import PlatformRegisterReq, EAccount_DownloadType, EAccount_NewbieChoice, EAuth_ClientUsingVersion
+from register_req_pb2 import PlatformRegisterReq, EAccount_DownloadType, EAccount_NewbieChoice, EAuth_ClientUsingVersion
 
 # Constants — replace with your actual keys & IV
 MAIN_KEY = base64.b64decode('WWcmdGMlREV1aDYlWmNeOA==')

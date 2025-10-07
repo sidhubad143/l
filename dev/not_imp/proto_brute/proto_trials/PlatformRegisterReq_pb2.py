@@ -28,7 +28,7 @@ DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&proto_trials/Plat
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'proto_trials.PlatformRegisterReq_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'proto_trials.register_req_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
   _globals['_EACCOUNT_DOWNLOADTYPE']._serialized_start=474

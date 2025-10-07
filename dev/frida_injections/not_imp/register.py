@@ -10,8 +10,8 @@ from Crypto.Cipher import AES
 from google.protobuf import json_format, message
 
 # Replace with actual generated proto modules
-from proto import FreeFire_pb2        # used for token->login if needed (optional)
-from proto.PlatformRegisterReq_pb2 import PlatformRegisterReq, EAuth_ClientUsingVersion
+from proto import freefire_pb2        # used for token->login if needed (optional)
+from proto.register_req_pb2 import PlatformRegisterReq, EAuth_ClientUsingVersion
 
 # AES key/iv (from your script)
 MAIN_KEY = base64.b64decode('WWcmdGMlREV1aDYlWmNeOA==')

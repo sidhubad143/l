@@ -18,7 +18,7 @@ DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x19\x41\x63\x63ou
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
-_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'AccountPersonalShow_pb2', _globals)
+_builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'account_show_pb2', _globals)
 if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   _globals['_VETERANLEAVEDAYS']._serialized_start=7312

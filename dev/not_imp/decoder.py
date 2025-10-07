@@ -3,7 +3,7 @@ from Crypto.Cipher import AES
 from google.protobuf.message import DecodeError
 import sys
 
-from PlatformRegisterReq_pb2 import PlatformRegisterReq
+from register_req_pb2 import PlatformRegisterReq
 
 # AES key and IV (base64 decoded)
 MAIN_KEY = base64.b64decode('WWcmdGMlREV1aDYlWmNeOA==')

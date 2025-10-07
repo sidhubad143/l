@@ -1,3 +1,8 @@
+# Protective Source License v1.0 (PSL-1.0)
+# Copyright (c) 2025 Kaif
+# Unauthorized removal of credits or use for abusive/illegal purposes
+# will terminate all rights granted under this license.
+
 import httpx
 import asyncio
 import binascii
@@ -7,7 +12,7 @@ from encrypt_like_body import create_like_payload  # Your protobuf + AES encrypt
 # --- Hardcoded credentials ---
 guest_uid = "4103701466"
 guest_pass = "81EA673E652E61BA3C70531693CAE417314E5D67563E2535EF30430296F24A4F"
-uid_to_like = "1002810438"
+uid_to_like = "111111111" # Place holder
 
 # Global variables
 jwt = None

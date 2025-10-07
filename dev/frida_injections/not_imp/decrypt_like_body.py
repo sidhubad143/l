@@ -3,9 +3,9 @@ import binascii
 from Crypto.Cipher import AES
 import sys
 
-# IMPORTANT: This script requires 'like_pb2.py' to be in the same directory.
+# IMPORTANT: This script requires 'send_like_pb2.py' to be in the same directory.
 # If it's in a different location (e.g., app/proto), you'll need to update the import statement.
-from like_pb2 import like as LikeProfileReq
+from send_like_pb2 import like as LikeProfileReq
 
 # --- Garena API Encryption Constants and Helpers ---
 MAIN_KEY = base64.b64decode('WWcmdGMlREV1aDYlWmNeOA==')
