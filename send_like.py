@@ -48,10 +48,10 @@ server_name_in = input("Enter server name (e.g., IND, BR, US, SAC, NA): ").strip
 
 guest_count = count()
 print(f"\n{guest_count} guest accounts found in '{guests_file}'")
-print("\nFree Fire allows 100 guest accounts to like a single profile within 24 hours")
+print("\nFree Fire allows 1000 guest accounts to like a single profile within 24 hours")
 
-requested_likes_in = input("How many likes you want to send? (recommended: 100/day): ").strip()
-requested_likes = int(requested_likes_in) if requested_likes_in else 100
+requested_likes_in = input("How many likes you want to send? (recommended: 1000/day): ").strip()
+requested_likes = int(requested_likes_in) if requested_likes_in else 1000
 
 max_conc_in = input("How many like requests to send per second? (eg. 20): ").strip()
 MAX_CONCURRENT = int(max_conc_in) if max_conc_in else 20
@@ -97,7 +97,7 @@ async def like_with_guest(guest: dict, target_uid: str) -> bool:
                 "Connection": "Keep-Alive",
                 "Accept-Encoding": "gzip",
                 "Content-Type": "application/octet-stream",
-                "Expect": "100-continue",
+                "Expect": "1000-continue",
                 "Authorization": f"Bearer {jwt}",
                 "X-Unity-Version": "2018.4.11f1",
                 "X-GA": "v1 1",
